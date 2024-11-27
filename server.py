@@ -8,7 +8,7 @@ def emotionDetector():
     text = request.args.get('textToAnalyze')
     emotions = emotion_detector(text)
 
-    return f"For the given statement, the system response is 'anger': {emotions["anger"]}, 'disgust': {emotions["disgust"]}, 'fear': {emotions["fear"]}, 'joy': {emotions["joy"]} and 'sadness': {emotions["sadness"]}. The dominant emotion is {emotions["dominant_emotion"]}. "
+    return "For the given statement, the system response is 'anger': {}, 'disgust': {}, 'fear': {}, 'joy': {} and 'sadness': {}. The dominant emotion is {}. ".format(emotions["anger"], emotions["disgust"], emotions["fear"], emotions["joy"], emotions["sadness"], emotions["dominant_emotion"])
 
 @app.route("/")
 def render_index():
