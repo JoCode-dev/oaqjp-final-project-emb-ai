@@ -8,6 +8,9 @@ def emotionDetector():
     text = request.args.get('textToAnalyze')
     emotions = emotion_detector(text)
 
+    if(emotions["dominant_emotion"] == None):
+        return " Invalid text! Please try again!."
+
     return "For the given statement, the system response is 'anger': {}, 'disgust': {}, 'fear': {}, 'joy': {} and 'sadness': {}. The dominant emotion is {}. ".format(emotions["anger"], emotions["disgust"], emotions["fear"], emotions["joy"], emotions["sadness"], emotions["dominant_emotion"])
 
 @app.route("/")
